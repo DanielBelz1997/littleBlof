@@ -1,14 +1,13 @@
 import Header from "./Header";
-import Nav from "./Nav";
-import Footer from "./Footer";
-import Home from "./Home";
-import NewPost from "./NewPost";
-import PostPage from "./PostPage";
-import About from "./About";
-import Mission from "./Mission";
+import {} from "react-router-dom";
+// import { useState } from "react";
 
 function App() {
-  return <>hello!</>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default App;
