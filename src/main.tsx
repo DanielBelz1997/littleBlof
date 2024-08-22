@@ -1,43 +1,19 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+// import App from "./App.tsx";
 
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Header from "./Header.tsx";
-import Nav from "./Nav.tsx";
-import Home from "./Home.tsx";
-import NewPost from "./NewPost.tsx";
-import PostPage from "./PostPage.tsx";
-import About from "./About.tsx";
-import Missing from "./Missing.tsx";
-import Footer from "./Footer.tsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import App from "./App.tsx";
+import { StrictMode } from "react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <>error</>,
-  },
-  {
-    path: "/post",
-    element: <NewPost />,
-    errorElement: <>error</>,
-  },
-  {
-    path: "/post/:id",
-    element: <PostPage />,
-    errorElement: <>error</>,
-  },
-]);
+const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
-    <Nav />
-
-    <About />
-    <Missing />
-    <Footer />
+    <QueryClientProvider client={queryClient}>
+      <App />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   </StrictMode>
 );

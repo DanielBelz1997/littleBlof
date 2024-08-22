@@ -1,11 +1,11 @@
-import Header from "./Header";
-import {} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
 // import { useState } from "react";
 
 function App() {
   return (
     <div>
-      <Header />
+      <RouterProvider router={router} />
     </div>
   );
 }
